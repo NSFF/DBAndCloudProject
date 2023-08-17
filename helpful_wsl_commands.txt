@@ -1,0 +1,10 @@
+
+* check if docker is running before you want to run a docker image:
+service docker start
+
+service docker status
+
+sudo docker run hello-world
+
+* if docker/user permission denied upon starting up minikube, add user to docker group:
+sudo usermod -aG docker $USER && newgrp docker
