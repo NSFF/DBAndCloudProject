@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-docker tag local-image:tagname new-repo:tagname
-docker push new-repo:tagname
+sudo docker tag dbandcloudimage:1.0 nsff/dbandcloud
+sudo docker push nsff/dbandcloud
