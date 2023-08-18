@@ -2,7 +2,8 @@
 FROM python:3.8
 
 # directory from where the local files will be copied to the image
-WORKDIR /home/nsff/School/DBAndCloud/DBAndCloudProject
+# uncomment only for local use
+#WORKDIR /home/nsff/School/DBAndCloud/DBAndCloudProject
 
 # copy local files to image
 COPY requirements.txt src/main.py ./
