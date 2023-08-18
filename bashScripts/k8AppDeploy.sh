@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 kubectl create deployment dbandcloud --image=nsff/dbandcloud
 kubectl expose deployment dbandcloud --type=NodePort --port=8080
-minikube service dbandcloud
+
+# after startup is done, we can launch the application with minikube service, but the output can also
+# be checked in the minikube dashboard => pods => click on the 3 dots next to the pod => logs
+#minikube service dbandcloud

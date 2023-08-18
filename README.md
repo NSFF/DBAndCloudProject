@@ -22,3 +22,4 @@ Here is a list of references I used to fix bugs and implement the project:
 * Docker push to docker hub: https://www.youtube.com/watch?v=EIHY_CY5J0k
 * Use image in minikube: https://minikube.sigs.k8s.io/docs/handbook/pushing/
 * Docker install additional python libraries: https://stackoverflow.com/questions/50333650/install-python-package-in-docker-file
+* Helped in debugging/testing minikube pod: https://www.youtube.com/watch?v=wQRqTAW27oQ

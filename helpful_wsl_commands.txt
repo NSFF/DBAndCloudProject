@@ -1,8 +1,8 @@
 
 * check if docker is running before you want to run a docker image:
-service docker start
+sudo service docker start
 
-service docker status
+sudo service docker status
 
 sudo docker run hello-world
 
