@@ -1,5 +1,5 @@
 def main():
-    print("Test Succeeded")
+    print("Script Succeeded")
 
 
 if __name__ == "__main__":

@@ -23,6 +23,7 @@ Here is a list of references I used to fix bugs and implement the project:
 * Use image in minikube: https://minikube.sigs.k8s.io/docs/handbook/pushing/
 * Docker install additional python libraries: https://stackoverflow.com/questions/50333650/install-python-package-in-docker-file
 * Helped in debugging/testing minikube pod: https://www.youtube.com/watch?v=wQRqTAW27oQ
+* Use local docker image in minikube: https://stackoverflow.com/questions/42564058/how-to-use-local-docker-images-with-minikube
 * Github actions only execute on folder specific changes: https://stackoverflow.com/questions/63822219/how-to-run-github-actions-workflow-only-if-the-pushed-files-are-in-a-specific-fo
 * Github actions build docker and push to hub: https://docs.github.com/en/actions/publishing-packages/publishing-docker-images
 * Github actions basics: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions
