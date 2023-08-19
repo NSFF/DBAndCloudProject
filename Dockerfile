@@ -5,8 +5,6 @@ FROM python:3.8
 # uncomment only for local use
 #WORKDIR /home/nsff/School/DBAndCloud/DBAndCloudProject
 
-ENV DB_READ_USER_PASS=${{secrets.DB_READ_USER_PASS}}
-
 # copy local files to image
 COPY requirements.txt src/* ./
 
