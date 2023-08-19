@@ -23,7 +23,6 @@ def main():
         print("total debt is:", result, "Euro")
     except Exception as e:
         print(e)
-    print(os.environ)
     print("Script Ended!")
 
 

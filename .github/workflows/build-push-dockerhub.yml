@@ -41,6 +41,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          secrets: 
+            DB_READ_USERNAME=${{secrets.DB_READ_USERNAME}}
+            DB_READ_USER_PASS=${{secrets.DB_READ_USER_PASS}}
           build-args:
             DB_READ_USERNAME=${{secrets.DB_READ_USERNAME}}
             DB_READ_USER_PASS=${{secrets.DB_READ_USER_PASS}}
