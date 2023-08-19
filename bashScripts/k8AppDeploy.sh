@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-kubectl create deployment dbandcloud --image=nsff/dbandcloud
+kubectl create deployment dbandcloud --image=nsff/dbandcloud:main
 kubectl expose deployment dbandcloud --type=NodePort --port=8080
 
 # after startup is done, we can launch the application with minikube service, but the output can also

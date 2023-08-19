@@ -6,7 +6,7 @@ FROM python:3.8
 #WORKDIR /home/nsff/School/DBAndCloud/DBAndCloudProject
 
 # copy local files to image
-COPY requirements.txt src/main.py ./
+COPY requirements.txt src/* ./
 
 # install extra libraries
 RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r requirements.txt

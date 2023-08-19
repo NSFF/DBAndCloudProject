@@ -5,11 +5,30 @@
 * Docker v24.0.4([install](https://docs.docker.com/engine/install/ubuntu/))
 * Kubernetes v1.27.4 ([install](https://minikube.sigs.k8s.io/docs/drivers/docker/))
 * Python~=3.8.0
+* Atlast MongoDB (cloud hosted MongoDB)
 
 # Environment setup
 
 Use the [``requirements.txt``](requirements.txt) or [``environment.yml``](environment.yml) to install your local python env.
 (Add ``python~=3.8.0`` to the requirements.txt script if you also want to install the right version of python. It had to be deleted because of a dockerfile issue.)
+
+# DataBase
+
+
+# DataBase Access
+
+We use the following user (``read_service_account``) to access the mongoDB with restricted access:
+* Has only Read permission
+* Can only access the used MongoDB database used in this project, called DBAndCloud
+* Username and passwords are stored in github secrets which
+
+# Docker Access
+
+Docker username and password + database username and password are stored in github secrets and used during build with github actions
+
+# CI/CD
+
+* Docker automatic build and push to [``my docker hub``](https://hub.docker.com/repository/docker/nsff/dbandcloud/general) when file within src folder changes
 
 
 # References
@@ -28,3 +47,5 @@ Here is a list of references I used to fix bugs and implement the project:
 * Github actions build docker and push to hub: https://docs.github.com/en/actions/publishing-packages/publishing-docker-images
 * Github actions basics: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions
 * Github actions, dockerfile should not use workdir: https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actions
+* Debugging decimal128 to float conversion in python: https://www.appsloveworld.com/pandas/100/274/how-to-convert-decimal128-to-decimal-in-pandas-dataframe
+* MongoDB python documentation: https://www.mongodb.com/docs/drivers/python/
