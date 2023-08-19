@@ -13,5 +13,5 @@ class DBConfigs:
 
     # os.environ["DB_READ_USERNAME"] = "read_service_account"
     # os.environ["DB_READ_USER_PASS"] = "test123"
-    DB_URI = f"mongodb+srv://{os.environ['DB_READ_USERNAME']}:{os.environ['DB_READ_USER_PASS']}@dbandcloud.s1vklr4.mongodb.net/?retryWrites=true&w=majority"
+    DB_URI = f"mongodb+srv://read_service_account:{os.environ['DB_READ_USER_PASS']}@dbandcloud.s1vklr4.mongodb.net/?retryWrites=true&w=majority"
     DB_NAME = "DBAndCloud"
