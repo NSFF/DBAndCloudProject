@@ -31,6 +31,10 @@ Docker username and password + database username and password are stored in gith
 * Docker automatic build and push to [``my docker hub``](https://hub.docker.com/repository/docker/nsff/dbandcloud/general) when file within src folder changes
 
 
+# Security Risk issue
+
+The github secrets are passed along to the github actions script which build the docker container and uploads it. The problem is, I need the variables of the mongoDB ``read_service_account`` in my python script. The right way to do it, is to build the docker image and use docker secrets. This however brought a lot of issues whith my github action script not passing along the variables. So I decided to use the docker build-arg command. This is a less secure way of using the variables. It could for example be detected in the container logs, or accidentally exposed if a user asks environment variables. (It's still better than nothing, but should be kept in mind)
+
 # References
 
 Here is a list of references I used to fix bugs and implement the project:
