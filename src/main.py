@@ -3,6 +3,7 @@ from pymongo.server_api import ServerApi
 from typing import Any
 from configs import DBConfigs
 from data_utils import DataUtils
+import os
 
 
 def main():
@@ -22,7 +23,7 @@ def main():
         print("total debt is:", result, "Euro")
     except Exception as e:
         print(e)
-
+    print(os.environ)
     print("Script Ended!")
 
 

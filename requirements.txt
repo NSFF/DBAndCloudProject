@@ -1,7 +1,1 @@
-isort==5.9.3
-pip==21.2.4
-
-numpy==1.24.3
-scikit-learn==1.2.2
 pymongo==4.4.1
-

@@ -12,10 +12,10 @@
 Use the [``requirements.txt``](requirements.txt) or [``environment.yml``](environment.yml) to install your local python env.
 (Add ``python~=3.8.0`` to the requirements.txt script if you also want to install the right version of python. It had to be deleted because of a dockerfile issue.)
 
-# DataBase
+# Database
 
 
-# DataBase Access
+# Database Access
 
 We use the following user (``read_service_account``) to access the mongoDB with restricted access:
 * Has only Read permission
@@ -49,3 +49,4 @@ Here is a list of references I used to fix bugs and implement the project:
 * Github actions, dockerfile should not use workdir: https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actions
 * Debugging decimal128 to float conversion in python: https://www.appsloveworld.com/pandas/100/274/how-to-convert-decimal128-to-decimal-in-pandas-dataframe
 * MongoDB python documentation: https://www.mongodb.com/docs/drivers/python/
+* Using github secrets in python: https://medium.datadriveninvestor.com/accessing-github-secrets-in-python-d3e758d8089b
