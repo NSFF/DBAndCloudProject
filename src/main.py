@@ -8,6 +8,7 @@ import os
 
 def main():
     dataUtils = DataUtils()
+    print(os.environ)
     client = dataUtils.connectToDB(DBConfigs.DB_NAME, DBConfigs.DB_URI)
     # Send a ping to confirm a successful connection
     try:
