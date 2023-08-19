@@ -8,3 +8,7 @@ sudo docker run hello-world
 
 * if docker/user permission denied upon starting up minikube, add user to docker group:
 sudo usermod -aG docker $USER && newgrp docker
+
+
+* Delete deployment of a container
+kubectl delete deployment dbandcloud

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+minikube image pull nsff/dbandcloud:main
 kubectl create deployment dbandcloud --image=nsff/dbandcloud:main
 kubectl expose deployment dbandcloud --type=NodePort --port=8080
 

@@ -3,12 +3,10 @@ from pymongo.server_api import ServerApi
 from typing import Any
 from configs import DBConfigs
 from data_utils import DataUtils
-import os
 
 
 def main():
     dataUtils = DataUtils()
-    print(os.environ)
     client = dataUtils.connectToDB(DBConfigs.DB_NAME, DBConfigs.DB_URI)
     # Send a ping to confirm a successful connection
     try:
