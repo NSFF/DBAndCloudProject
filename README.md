@@ -1,11 +1,16 @@
 # DBAndCloudProject
 
+This project represents a deployment of a cloud database (Atlas MongoDB) containing quarterly revenue reports. We connect through the database using python that is run on a kubernetes cluster. The python script will request the data and return an analysis. The actual analysis of the data and the data itself is conceptially and not meant to be fully fletched out applications.
+
+This project also introduces CI/CD concepts. The project will automatically build the docker container, which holds our containerized python script, whenever a push happens to the github repository. Additionally, our docker image will be automatically uploaded to [``my docker hub``](https://hub.docker.com/repository/docker/nsff/dbandcloud/general). This allows the new docker image to be automatically useable in the deployment of a new kubernetes cluster.
+
+
 # Software used
 
 * Docker v24.0.4([install](https://docs.docker.com/engine/install/ubuntu/))
 * Kubernetes v1.27.4 ([install](https://minikube.sigs.k8s.io/docs/drivers/docker/))
-* Python~=3.8.0
-* Atlas MongoDB (cloud hosted MongoDB)
+* Python~=3.8.0 ([install](https://www.python.org/downloads/))
+* [Atlas MongoDB](https://www.mongodb.com/atlas/database) (cloud hosted MongoDB)
 
 # Environment setup
 
@@ -14,6 +19,23 @@ Use the [``requirements.txt``](requirements.txt) or [``environment.yml``](enviro
 
 # Database
 
+Atlas MongoDB (hosted on Google Cloud) was used for this project with an M0 (Free) database. As it is a free version, it restricts the options we have for data management/governance. We would need to upgrade to M2/M5/M10 for all the best practices to be implemented, which quickly adds to our expenses as a student.
+
+Instead I will show what we would have turned on.
+
+* I would have turned on the [backup options](https://www.mongodb.com/docs/atlas/backup-restore-cluster/#backup-methods). Both the Serverless Continuous Backup and Basic backups. But it depends on the use case. Our use case handles financial revenue data that only updates once very quarter where the whole database might be read and analysed every quarter. That's why we will need full database backups or partial backups of most recent (2-3 year) data.
+    * The serverless option allows us to go back to full snapshots up to 35 days, which gives us breathing room if mistakes happen and are not immediately noticed. I did not immediately find back options for older than 35 days, but I assume it is possible. This would also be a better option for our use case.
+    * The Basic backup options are great for development and deployment purposes, as it only keeps the 2 most recent backups in the past 12 hours. This allows us to deploy or test and revert back to a very recent working version.
+    * We could also think about adding database logging. For any event that happens with the database. I see mainly uses for our use case for whenever new data is added or changed/deleted. + Whenever data is being read and who is connecting and when to our database. Additionally, we should monitor/log the performance of the servers hosting and serving our database. This could allow us to notice abnormalities of our database throughput.
+
+* I would also turn on Termination protection to avoid accidental deletion of our database. (see image below)
+
+![backup options on MongoDB](./images/backupOptions.PNG)
+
+As this projects focus is more about best practices, deployment and CI/CD, we will not have very elaborate data or applications running in our project. An example of our dummy data looks like this:
+
+![our dummy data on MongoDB](./images/dummyData.PNG)
+
 
 # Database Access
 
@@ -21,6 +43,10 @@ We use the following user (``read_service_account``) to access the mongoDB with 
 * Has only Read permission
 * Can only access the used MongoDB database used in this project, called DBAndCloud
 * Username and passwords are stored in github secrets which is used during docker build.
+
+# Containerization
+
+My application currently creates only 1 docker image. This script automatically connects and analyzes the data to our MongoDB. There is however a different more common approach to do this. Often companies would make an API to the MongoDB and containerize this. The API would be added to a namespace within the kubernetes cluster. However, I opted out of this solution as we are only interested in Reading ALL the data for our use case and developing an API would be overkill. But it is best practice to containerize and develop an api for it. (Atlas MongoDB also allows for automatic CRUD API creation and hosting. This would have also solved the issue but wouldn't have used our kubernetes cluster.)
 
 # Docker Access
 

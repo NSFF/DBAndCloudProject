@@ -13,7 +13,7 @@ def main():
         print("Connected to MongoDB!")
 
         # get all debt of all documents
-        data = client.Financials.find({}, {"_id": 0, "debt": 1})
+        data = client.Financials.find({}, {"debt": 1, "_id": 0})
 
         # execute a data operation on the debt data.
         # This could have been anything from data analysis to training of machine learning models
