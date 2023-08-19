@@ -5,7 +5,7 @@
 * Docker v24.0.4([install](https://docs.docker.com/engine/install/ubuntu/))
 * Kubernetes v1.27.4 ([install](https://minikube.sigs.k8s.io/docs/drivers/docker/))
 * Python~=3.8.0
-* Atlast MongoDB (cloud hosted MongoDB)
+* Atlas MongoDB (cloud hosted MongoDB)
 
 # Environment setup
 
@@ -20,7 +20,7 @@ Use the [``requirements.txt``](requirements.txt) or [``environment.yml``](enviro
 We use the following user (``read_service_account``) to access the mongoDB with restricted access:
 * Has only Read permission
 * Can only access the used MongoDB database used in this project, called DBAndCloud
-* Username and passwords are stored in github secrets which
+* Username and passwords are stored in github secrets which is used during docker build.
 
 # Docker Access
 
