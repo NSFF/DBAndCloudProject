@@ -14,8 +14,16 @@ This project also introduces CI/CD concepts. The project will automatically buil
 
 # Environment setup
 
-Use the [``requirements.txt``](requirements.txt) or [``environment.yml``](environment.yml) to install your local python env.
-(Add ``python~=3.8.0`` to the requirements.txt script if you also want to install the right version of python. It had to be deleted because of a dockerfile issue.)
+Use the [``environment.yml``](environment.yml) to install your local python env. ([``requirements.txt``](requirements.txt) Is used to create the docker image and doesn't contain the python version that I used.)
+
+If you want to execute the python script to your minikube. You will have to install minikube and docker. Follow the following steps to execute the script on a minikube cluster.
+
+* Make sure the docker service is started, if not use the following command: ``sudo service docker start``
+* Start minikube: ``minikube start``
+    * If docker images permission denied, execute this command: ``sudo usermod -aG docker $USER && newgrp docker``
+* (Start the dashboard: ``minikube dashboard``)
+* Pull our image on docker hub and deploy it on our minikube: [``./k8Deploy.sh``](./bashScripts/k8AppDeploy.sh)
+    * If anything goes wrong here, it might be that the deployment already exists (Execute ``kubectl delete deployment dbandcloud`` to delete the existing deployment) OR something else might be wrong. An alternative might be to allow minikube/kubectl to access local docker images and pull the image to docker first. For this you can follow the guide [here](https://minikube.sigs.k8s.io/docs/handbook/pushing/#1-pushing-directly-to-the-in-cluster-docker-daemon-docker-env)
 
 # Database
 
