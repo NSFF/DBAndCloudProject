@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbandcloud
+  labels:
+    app: dbandcloud
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dbandcloud
+  template:
+    metadata:
+      labels:
+        app: dbandcloud
+    spec:
+      containers:
+      - name: dbandcloud
+        image: nsff/dbandcloud:main
+        ports:
+        - containerPort: 8080

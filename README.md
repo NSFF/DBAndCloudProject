@@ -22,7 +22,7 @@ If you want to execute the python script to your minikube. You will have to inst
 * Start minikube: ``minikube start``
     * If docker images permission denied, execute this command: ``sudo usermod -aG docker $USER && newgrp docker``
 * (Start the dashboard: ``minikube dashboard``)
-* Pull our image on docker hub and deploy it on our minikube: [``./k8Deploy.sh``](./bashScripts/k8AppDeploy.sh)
+* Pull our image on docker hub and deploy it on our minikube: [``./k8Deploy.sh``](./bashScripts/k8AppDeploy.sh) . If you want to use the [``k8-deployment-config.yml``](./configs/k8-deployment-config.yml) for deployment. Execute [``./k8AppConfigDeploy.sh``](./bashScripts/k8AppConfigDeploy.sh) instead.
     * If anything goes wrong here, it might be that the deployment already exists (Execute ``kubectl delete deployment dbandcloud`` to delete the existing deployment) OR something else might be wrong. An alternative might be to allow minikube/kubectl to access local docker images and pull the image to docker first. For this you can follow the guide [here](https://minikube.sigs.k8s.io/docs/handbook/pushing/#1-pushing-directly-to-the-in-cluster-docker-daemon-docker-env)
 
 # Database
